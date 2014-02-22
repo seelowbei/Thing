@@ -1,0 +1,9 @@
+.navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
+  .container
+    .navbar-header 
+      %h3#main= link_to "Ask Your MD..",  root_path
+    - if user_signed_in?      
+      .navbar-form.navbar-right
+        = link_to "Change password", edit_user_registration_path, class: "btn btn-primary btn-sm"
+        = link_to "Log Out [ #{current_user.email} ]", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" 
+

@@ -1,0 +1,31 @@
+.row
+  .col-lg-1
+  .col-lg-10
+    = form_tag report_questions_path, :method => 'get', id:"search-form", class: 'form-inline' do
+      .form-group
+        .col-lg-12
+          = label_tag(:from_date, "From")
+          = text_field_tag('search[from_date]', @from)
+          = label_tag(:to_date, "To")
+          = text_field_tag('search[till_date]', @to)
+          %button{type: "search", id: "report_search", class: 'btn btn-primary btn-sm' } Search
+         
+          - if params[:search]
+            = link_to "Export to CSV", report_questions_path(search: params[:search], format: "csv"), class: 'btn btn-primary btn-sm'
+
+- if params[:search] 
+  .row
+    .col-lg-1
+    .col-lg-10
+      %p 
+        .table-responsive
+          %table.table.table-hover.table-bordered.table-striped
+            %thead.active
+              %tr
+                %th.center Date
+                %th.center Question
+              %tbody
+                -@questions.each do |q|
+                  %tr
+                    %td=q.created_at.strftime("%d/%m/%Y %I:%M %P")
+                    %td=q.question_text

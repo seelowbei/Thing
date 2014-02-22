@@ -1,0 +1,11 @@
+.row
+  .col-lg-1
+  .col-lg-10
+    = form_for @question, html: {class: "form-inline" , id: "question_form"} do |f|
+      = f.text_area :question_text, class: "form-control", rows: 10, style: "width:100% !important;",  placeholder: "Please input your question."
+
+      
+      .form-group
+        %button{type: "submit", id: "submit", class: "btn btn-primary btn-sm"} Submit 
+  .col-lg-1
+  
