@@ -27,7 +27,7 @@ before_filter :authenticate_user!,  only: [:report]
 
 			respond_to do |format|
 				if Question.check_date_request?(params[:search])
-					format.html {redirect_to report_questions_path, notice: "FROM DATE cannot be greater than TO DATE "}
+					format.html {redirect_to report_questions_path, flash: {error: "FROM DATE cannot be greater than TO DATE "}}
 				else
 					format.html
 				end			
