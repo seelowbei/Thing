@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 before_filter :authenticate_user!,  only: [:report]
 
 
-	def index
+	def new
 		@question = Question.new
 	end
 
@@ -11,13 +11,9 @@ before_filter :authenticate_user!,  only: [:report]
 		@question = Question.new(question_params) 
 		respond_to do |format|
 			if @question.save
-	        	format.html { redirect_to questions_path, notice: 'One question was successfully submitted.' }
+	        	format.html { redirect_to new_question_path, notice: 'One question was successfully submitted.' }
 	        else
-	        	if @question.question_text.blank?
-	        		format.html {redirect_to questions_path , notice: "Please input your question."}
-	        	else
-	        		format.html {redirect_to questions_path , notice: "Incorret answer. Please answer another question."}
-	        	end	
+	        	format.html { render :new }
 	      	end 
   		end
 	end
@@ -34,14 +30,10 @@ before_filter :authenticate_user!,  only: [:report]
 					format.html {redirect_to report_questions_path, notice: "FROM DATE cannot be greater than TO DATE "}
 				else
 					format.html
-				end
-			
+				end			
 				format.csv { send_data @questions.to_csv }
 			end
-		end
-
-		
-		
+		end		
 	end	
 
 private

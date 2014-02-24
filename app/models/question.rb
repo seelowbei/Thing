@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
 	attr_accessor :from_date, :till_date
 
 	validate do
-    errors.add(:base, "Please enter your question.") if question_text.blank?    
+    	errors.add(:base, "Please enter your question.") if question_text.blank?    
     end
 
 	def self.search(opts = {})
