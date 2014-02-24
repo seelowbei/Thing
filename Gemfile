@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'devise'
+gem 'redis'
+gem 'redis-namespace'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -21,8 +23,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'quiet_assets'
 gem 'pg'
-gem 'simple_captcha2', require: 'simple_captcha'
-
+gem 'humanizer'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

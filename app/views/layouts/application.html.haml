@@ -13,10 +13,9 @@
       = render "layouts/navbar"
 
       .container
-        -if user_signed_in?
-          - flash.each do |name, msg|
-            .alert{class: "alert-#{name == :notice ? 'success' : 'danger'}"}
-              = msg
+        - flash.each do |name, msg|
+          .alert{class: "alert-#{name == :notice ? 'success' : 'danger'}"}
+            = msg
       = yield
 
     = render "layouts/footer"

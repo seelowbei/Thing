@@ -1,6 +1,5 @@
 Qnapp::Application.routes.draw do
-  
-  
+    
   devise_for :users
 
   resources :questions do

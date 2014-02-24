@@ -6,14 +6,19 @@ class User < ActiveRecord::Base
 
   def edit
     @user = current_user
+
   end
 
   def update_password
     @user = User.find(current_user.id)
     if @user.update(user_params)
-      
       sign_in @user, :bypass => true
-      redirect_to report_questions_path
+      puts "chgvhjbajhbdsvhjabshjvbhjdbvhadbvhabdhvjbhdbvhb"
+      respond_to do |format|
+        format.html{ redirect_to report_questions_path ,  notice: "Password successfully updated."}
+      end
+
+      
     else
       render "edit"
     end

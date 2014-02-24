@@ -46,7 +46,7 @@ html, body {
   color: black !important;
 }
 
-#user_email, #user_password{
+#user_email, #user_password, #question_humanizer_answer{
   color: black !important;
 }
 

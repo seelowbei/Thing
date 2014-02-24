@@ -18,6 +18,9 @@
 var ready = function(){
 	$('#search_from_date').datepicker({ dateFormat: "dd/mm/yy" });
 	$('#search_till_date').datepicker({ dateFormat: "dd/mm/yy" });
+	$('#refresh').on("click", function(){
+		window.location.reload();
+	})
 	
 };
 
