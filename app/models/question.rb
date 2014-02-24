@@ -16,7 +16,7 @@ class Question < ActiveRecord::Base
 	end	
 
 	def self.check_date_request?(opts = {})
-		opts[:from_date].to_date >  opts[:till_date].to_date
+		opts[:from_date].to_date >  opts[:till_date].to_date unless opts[:from_date].blank? or opts[:till_date].blank?
 	end
 
 	def self.to_csv(options = {})

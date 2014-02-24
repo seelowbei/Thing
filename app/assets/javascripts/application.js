@@ -16,8 +16,17 @@
 //= require_tree .
 
 var ready = function(){
-	$('#search_from_date').datepicker({ dateFormat: "dd/mm/yy" });
-	$('#search_till_date').datepicker({ dateFormat: "dd/mm/yy" });
+	$('#search_from_date').datepicker({ 
+		dateFormat: "dd/mm/yy", 
+		onSelect: function(selected) {
+          $("#search_till_date").datepicker("option","minDate", selected)
+        }});
+	$('#search_till_date').datepicker({ 
+		dateFormat: "dd/mm/yy", 
+		onSelect: function(selected) {
+           $("#search_from_date").datepicker("option","maxDate", selected)
+        }
+	});
 	$('#refresh').on("click", function(){
 		window.location.reload();
 	})
