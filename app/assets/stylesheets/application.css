@@ -187,6 +187,15 @@ background-image: -webkit-gradient(
   left: -10px;
 }
 
+.alert-danger:after{
+
+  border: 12px solid transparent;
+  border-bottom-color: #cc0000;
+  bottom: 0px;
+  left: -10px;
+
+}
+
 .alert--alt {
   background-image: linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
   background-image: -o-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
