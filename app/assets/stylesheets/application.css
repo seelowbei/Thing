@@ -53,3 +53,167 @@ html, body {
 #main > a{
   color: white !important;
 }
+
+
+
+
+#question_question_text {
+  border-radius: 20px !important;
+  border-bottom: blue !important;
+}
+
+.alert{
+  border-radius: 20px !important;
+}
+
+
+.bubble {
+  background-image: linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
+background-image: -o-linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
+background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.25, rgb(210,244,254)),
+  color-stop(1, rgb(149,194,253))
+);
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: inset 0 5px 5px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  clear: both;
+  float: left;
+  margin-bottom: 20px;
+  /*padding: 8px 30px;*/
+  position: relative;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+  width: 100%;
+  /*max-width: 100%;*/
+  word-wrap: break-word;
+}
+
+.bubble:before, .bubble:after {
+  border-radius: 20px / 10px;
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.bubble:before {
+  border: 20px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: -7px;
+  z-index: -2;
+}
+
+.bubble:after {
+  border: 12px solid transparent;
+  border-bottom-color: white;
+  bottom: 0px;
+  left: -10px;
+}
+
+.bubble--alt {
+  background-image: linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.25, rgb(172,228,75)),
+  color-stop(1, rgb(122,205,71))
+);
+  float: right;
+}
+
+.bubble--alt:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px / 10px;
+  left: auto;
+  right: -7px;
+}
+
+.bubble--alt:after {
+  border-bottom-color: #ace44b;
+  border-radius: 20px / 10px;
+  left: auto;
+  right: -5px;
+}
+
+
+.alert {
+ 
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: inset 0 5px 5px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  clear: both;
+  float: left;
+  margin-bottom: 20px;
+  /*padding: 8px 30px;*/
+  position: relative;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+  width: 100%;
+  /*max-width: 100%;*/
+  word-wrap: break-word;
+}
+
+.alert:before, .alert:after {
+  border-radius: 20px / 10px;
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.alert:before {
+  border: 20px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: -7px;
+  z-index: -2;
+}
+
+.alert:after {
+  border: 12px solid transparent;
+  border-bottom-color: #77b300;
+  bottom: 0px;
+  left: -10px;
+}
+
+.alert--alt {
+  background-image: linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(172,228,75) 25%, rgb(122,205,71) 100%);
+  background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.25, rgb(172,228,75)),
+  color-stop(1, rgb(122,205,71))
+);
+  float: right;
+}
+
+.alert--alt:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px / 10px;
+  left: auto;
+  right: -7px;
+}
+
+.alert--alt:after {
+  border-bottom-color: #ace44b;
+  border-radius: 20px / 10px;
+  left: auto;
+  right: -5px;
+}
+

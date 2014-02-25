@@ -11,7 +11,7 @@ before_filter :authenticate_user!,  only: [:report]
 		@question = Question.new(question_params) 
 		respond_to do |format|
 			if @question.save
-	        	format.html { redirect_to new_question_path, notice: 'One question was successfully submitted.' }
+	        	format.html { redirect_to new_question_path, notice:  "#{question_params[:question_text]}. Submitted on #{DateTime.now.strftime("%d/%m/%Y %I:%M %P")}" }
 	        else
 	        	format.html { render :new }
 	      	end 

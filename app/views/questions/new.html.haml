@@ -1,6 +1,7 @@
 .row
   .col-lg-1
   .col-lg-10
+    
     = form_for @question, html: {class: "form-horinzontal" , id: "question_form"} do |f|
       - if f.object.errors.any?
         .alert.alert-danger
@@ -8,7 +9,10 @@
             = msg
             %br
 
-      = f.text_area(:question_text ,class: "form-control", rows: 10, style: "width:100% !important;",  placeholder: "Please input your question.")
+      .form-group
+        .bubble
+          = f.text_area(:question_text ,class: "form-control", rows: 10, style: "width:100% !important;",  placeholder: "Please input your question.")
+
       .form-group
         Please answer below question. 
       .form-group       
