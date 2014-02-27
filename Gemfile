@@ -43,7 +43,6 @@ end
 
 group :production do
   gem 'puma', :platforms => :ruby
-  gem 'webrick', :platforms => [:mswin, :mingw]
 end
 
 # Use ActiveModel has_secure_password
