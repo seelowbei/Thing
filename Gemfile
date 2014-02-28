@@ -9,7 +9,7 @@ gem 'devise'
 #gem 'redis'
 #gem 'redis-namespace'
 
-
+gem 'newrelic_rpm'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
