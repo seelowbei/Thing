@@ -39,6 +39,6 @@ before_filter :authenticate_user!,  only: [:report]
 
 private
   def question_params
-    params.require(:question).permit!
+    params.require(:question).permit(:question_text, :humanizer_answer, :humanizer_question_id)    
   end
 end
