@@ -1,7 +1,10 @@
 .navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
   .container
+
     .navbar-header 
+      = image_tag 'logo.JPG', id:'logo'        
       %h3#main= link_to "Ask Your MD..",  root_path
+
     - if user_signed_in?      
       .navbar-form.navbar-right
         = link_to "Change password", edit_user_registration_path, class: "btn btn-primary btn-sm"

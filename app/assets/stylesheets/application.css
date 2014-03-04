@@ -14,7 +14,7 @@
 
 html, body {
     height: 100%;
-    padding-top: 50px;
+    padding-top: 40px;
     color: white !important;
     font: 14px !important;   
 }
@@ -31,6 +31,11 @@ html, body {
   width: 100%;
 }
 
+#logo{
+position: absolute !important;
+margin-left: 0px !important;
+}
+
 #search_from_date, #search_till_date{
   color: black !important;
   font-weight: bold !important;
@@ -43,7 +48,7 @@ html, body {
 }
 
 #wrap > h2{
-  color: black !important;
+  color: white !important;
 }
 
 #user_email, #user_password, #question_humanizer_answer{
@@ -51,24 +56,26 @@ html, body {
 }
 
 #main > a{
-  color: white !important;
+  margin-left: 180px !important;
+  color: #CF142B !important;
 }
-
-
-
 
 #question_question_text {
   border-radius: 20px !important;
-  border-bottom: blue !important;
+  border-bottom: red !important;
+  color: black !important;
+}
+
+#question_form, #search-form, .table{
+  color: black !important;
 }
 
 .alert{
   border-radius: 20px !important;
 }
 
-
 .bubble {
-  background-image: linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
+background-image: linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
 background-image: -o-linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
 background-image: -moz-linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
 background-image: -webkit-linear-gradient(bottom, rgb(210,244,254) 25%, rgb(149,194,253) 100%);
@@ -87,11 +94,9 @@ background-image: -webkit-gradient(
   clear: both;
   float: left;
   margin-bottom: 20px;
-  /*padding: 8px 30px;*/
   position: relative;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
   width: 100%;
-  /*max-width: 100%;*/
   word-wrap: break-word;
 }
 
@@ -112,9 +117,9 @@ background-image: -webkit-gradient(
 
 .bubble:after {
   border: 12px solid transparent;
-  border-bottom-color: white;
+  border-bottom-color: black;
   bottom: 0px;
-  left: -10px;
+  left: -11px;
 }
 
 .bubble--alt {
@@ -182,7 +187,7 @@ background-image: -webkit-gradient(
 
 .alert:after {
   border: 12px solid transparent;
-  border-bottom-color: #77b300;
+  border-bottom-color: #3fad46;
   bottom: 0px;
   left: -10px;
 }
@@ -190,7 +195,7 @@ background-image: -webkit-gradient(
 .alert-danger:after{
 
   border: 12px solid transparent;
-  border-bottom-color: #cc0000;
+  border-bottom-color: #d9534f;
   bottom: 0px;
   left: -10px;
 
