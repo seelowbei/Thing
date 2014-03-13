@@ -8,7 +8,7 @@ gem 'sqlite3'
 gem 'devise'
 #gem 'redis'
 #gem 'redis-namespace'
-
+gem "factory_girl_rails", "~> 4.0"
 gem 'newrelic_rpm'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -44,6 +44,11 @@ end
 
 group :production do
   gem 'puma', :platforms => :ruby
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password

@@ -1,8 +1,8 @@
 class Question < ActiveRecord::Base
 	
 	include Humanizer
-    require_human_on :create
-	attr_accessor :from_date, :till_date
+    require_human_on :create, :unless => :bypass_humanizer
+	attr_accessor :from_date, :till_date, :bypass_humanizer
 
 	validate do
     	errors.add(:base, "Please enter your question.") if question_text.blank?    
@@ -19,8 +19,8 @@ class Question < ActiveRecord::Base
 		opts[:from_date].to_date >  opts[:till_date].to_date unless opts[:from_date].blank? or opts[:till_date].blank?
 	end
 
-	def self.to_csv(options = {})
-      CSV.generate(options) do |writer| 
+	def self.to_csv	
+      CSV.generate do |writer| 
         writer << ["Date",  "Question"] 
         all.each do |row|
           writer << [row["created_at"].strftime("%d/%m/%Y %I:%M %P"), row["question_text"]]

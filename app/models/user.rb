@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   private
 
   def user_params
-    
     params.required(:user).permit(:password, :password_confirmation)
   end
 
