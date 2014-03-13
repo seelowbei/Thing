@@ -7,6 +7,11 @@ require 'rspec/autorun'
 # rake db:test:prepare ==>initialize rspec test db
 
 require "codeclimate-test-reporter"
+
+CodeClimate::TestReporter.configure do |config|
+  config.logger.level = Logger::WARN
+end
+
 CodeClimate::TestReporter.start
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
