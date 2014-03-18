@@ -1,4 +1,5 @@
 require "spec_helper"
+require 'csv'
 
 describe QuestionsController do
 
@@ -34,25 +35,31 @@ describe QuestionsController do
         expect(response.status).to eq(200)
       end
 
-      it "should allow to search and return the correct question list" do
+      it "should allow to search with date and return the correct question list" do
         get 'report', :search => {:from_date => "10/02/2014", :till_date => "13/03/2014"}
-        assigns[:search].should_not be_nil
-        expect(:search.first.question_text).to eq "Rspec"
+        assigns(:questions).should_not be_nil
+        expect(assigns(:questions).first.question_text).to eq "Rspec"
       end
-
-      it "should allow to export the correct question list to csv report" do
-        get 'report', :search => {:from_date => "10/02/2014", :till_date => "13/03/2014"}
-        it.should_receive(:send_file).with(@file, {:filename =>"report.csv", :type => 'text/csv', :disposition => 'attachment'})
-        do_get    
-        pending 
-      end 
 
       it "should redirect to report_questions_path with error message if date request is invalid" do
         get 'report', :search => {:from_date => "10/04/2014", :till_date => "13/03/2014"}
-        flash[:notice].should_not be_nil
-        #expect(flash[:notice]).to eq "FROM DATE cannot be greater than TO DATE "
         expect(response).to redirect_to report_questions_path
+        expect(flash[:error]).to eq "FROM DATE cannot be greater than TO DATE "
       end
+
+      let(:csv_string)  { Question.to_csv }
+      let(:csv_options) { {filename: "report.csv", disposition: 'attachment', type: 'text/csv; charset=utf-8; header=present'} }
+
+      it "should allow to export the correct question list to csv report" do
+        #get 'report', :search => {:from_date => "10/02/2014", :till_date => "13/03/2014"}
+        #should_receive(:send_data).with(@file, {:filename =>"report.csv", :type => 'text/csv', :disposition => 'attachment'})
+        #expect(:send_data).not_to be_nil
+        #expect(:send_data).to eq "Rspec"
+        #expect(:send_data).with(Question.all.to_csv).returns(:success)
+        #@controller.should_receive(:send_data).with(csv_string).and_return { @controller.render nothing: true } # to prevent a 'missing template' error
+        #get :report, format: :csv
+        pending
+      end 
     end
 
     context "as a visitor" do
