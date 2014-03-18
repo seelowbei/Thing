@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
 
   def after_sign_out_path_for(resource_or_scope)
-    	report_questions_path
+	report_questions_path
   end
  
 end

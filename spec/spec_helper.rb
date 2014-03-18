@@ -1,18 +1,17 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
+
+
 ENV["RAILS_ENV"] ||= 'test'
+require 'simplecov'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'simplecov'
 # rails generate rspec:install ==> to initialize rspec dir and spec_helper.rb
 # rake db:test:prepare ==>initialize rspec test db
 
-require "codeclimate-test-reporter"
-
-CodeClimate::TestReporter.configure do |config|
-  config.logger.level = Logger::WARN
-end
-
-CodeClimate::TestReporter.start
+SimpleCov.start
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -58,5 +57,5 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  #config.order = "random"
 end

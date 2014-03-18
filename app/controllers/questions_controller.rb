@@ -2,6 +2,7 @@ require 'csv'
 class QuestionsController < ApplicationController
 before_filter :authenticate_user!,  only: [:report]
 
+	
 
 	def new
 		@question = Question.new
@@ -19,11 +20,13 @@ before_filter :authenticate_user!,  only: [:report]
 	end
 
 	def report
-			
+			puts "report"
 		if params[:search]
 			@from = params[:search][:from_date]
 			@to = params[:search][:till_date]
 			@questions = Question.search(params[:search]) 
+
+			puts "test"
 
 			respond_to do |format|
 				
@@ -39,6 +42,6 @@ before_filter :authenticate_user!,  only: [:report]
 
 private
   def question_params
-    params.require(:question).permit(:question_text, :humanizer_answer, :humanizer_question_id)    
+    params.require(:question).permit(:question_text, :humanizer_answer, :humanizer_question_id, :bypass_humanizer)    
   end
 end

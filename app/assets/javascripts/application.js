@@ -16,6 +16,14 @@
 //= require_tree .
 
 var ready = function(){
+	function getURLParameter(name) {
+  		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+	}
+	question_text = getURLParameter('question_text');
+	if(question_text != null && question_text.length > 0){
+		$("#question_question_text").val(question_text);
+	}
+
 	$('#search_from_date').datepicker({ 
 		dateFormat: "dd/mm/yy", 
 		onSelect: function(selected) {
@@ -27,10 +35,13 @@ var ready = function(){
            $("#search_from_date").datepicker("option","maxDate", selected)
         }
 	});
-	$('#refresh').on("click", function(){
-		window.location.reload();
+	
+	$('#refresh').on("click", function(e){
+		e.preventDefault();
+		question_text = $("#question_question_text").val();
+		window.location = "/questions/new?question_text=" + question_text;
 	})
 	
 };
-
+$(document).on('page:load', ready);
 $(document).on('page:change', ready);

@@ -3,26 +3,31 @@
   .col-lg-10
     
     = form_for @question, html: {class: "form-horinzontal" , id: "question_form"} do |f|
-      - if f.object.errors.any?
+      - if f.object.errors.reject{|k, msg| k.to_s == "humanizer_answer"}.any?
         .alert.alert-danger
           - f.object.errors.each do |k, msg|
-            = msg
-            %br
+            = msg if k.to_s == "base" 
 
       .form-group
         .bubble
-          = f.text_area(:question_text ,class: "form-control", rows: 8, style: "width:100% !important;",  placeholder: "Please input your question.")
+          = f.text_area(:question_text ,class: "form-control", rows: 6, style: "width:100% !important;",  placeholder: "Please input your question.")
 
       .form-group
-        Please answer below question. 
-      .form-group       
-        = f.label :humanizer_answer, @question.humanizer_question
+        Please answer below question.
         %button{type: "button", id: "refresh", class: "btn btn-info btn-sm"} Refresh question  
+      .form-group 
+        = f.label :humanizer_answer, @question.humanizer_question
+        - if f.object.errors.any?
+          .red
+            - f.object.errors.each do |k, msg|
+              = msg if k.to_s != "base"
+      
       .form-group  
         = f.text_field :humanizer_answer
         = f.hidden_field :humanizer_question_id
-             
+
       .form-group
-        %button{type: "submit", id: "submit", class: "btn btn-primary btn-sm"} Submit 
+        = submit_tag "Submit", class: "btn btn-primary btn-sm"
+        / %button{type: "button", id: "submit", class: "btn btn-primary btn-sm"} Submit 
   .col-lg-1
   

@@ -17,7 +17,7 @@ describe Question do
 
 	it "should search and return the question" do
 		Question.create(question_text: "Doing rspec testing", bypass_humanizer: true)
-		search  = { :from_date =>"10/03/2014", :till_date =>"13/03/2014"}	     	
+		search  = { :from_date =>"10/03/2014", :till_date =>"13/03/2015"}	     	
 		questions =  Question.search(search)
 		questions.should_not be_empty
 	end
