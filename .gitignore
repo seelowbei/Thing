@@ -23,3 +23,4 @@ public/assets/**
 nohup.out
 config/locales/humanizer.en.yml
 config/initializers/secret_token.rb
+db/seeds.rb
