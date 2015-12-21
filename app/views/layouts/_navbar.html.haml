@@ -1,12 +1,13 @@
 .navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
   .container
 
-    .navbar-header 
-      = image_tag 'logo.JPG', id:'logo'        
+    .navbar-header
+      = image_tag 'logo.JPG', id:'logo'
       %h3#main= link_to "Ask My MD..",  root_path
 
-    - if user_signed_in?      
+    - if user_signed_in?
       .navbar-form.navbar-right
+        = link_to "Report", report_questions_path, class: "btn btn-success btn-sm" if current_user.role == 'superadmin'
+        = link_to "Manage Users", users_path, class: "btn btn-warning btn-sm"
         = link_to "Change password", edit_user_registration_path, class: "btn btn-primary btn-sm"
-        = link_to "Log Out [ #{current_user.email} ]", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" 
-
+        = link_to "Log Out [ #{current_user.email} ]", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm"

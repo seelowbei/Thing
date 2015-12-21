@@ -1,5 +1,5 @@
 Qnapp::Application.routes.draw do
-    
+
   devise_for :users, :controllers => { :registrations => :registrations }
 
   resources :questions do
@@ -12,7 +12,7 @@ Qnapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'questions#new'
-
+  resources :users
 
 
   # Example of regular route:
@@ -49,7 +49,7 @@ Qnapp::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

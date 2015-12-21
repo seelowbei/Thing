@@ -13,9 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require best_in_place
+//= require best_in_place.purr
 //= require_tree .
 
 var ready = function(){
+	$('.best_in_place').best_in_place();
+	
 	function getURLParameter(name) {
   		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
 	}
@@ -24,24 +28,24 @@ var ready = function(){
 		$("#question_question_text").val(question_text);
 	}
 
-	$('#search_from_date').datepicker({ 
-		dateFormat: "dd/mm/yy", 
+	$('#search_from_date').datepicker({
+		dateFormat: "dd/mm/yy",
 		onSelect: function(selected) {
           $("#search_till_date").datepicker("option","minDate", selected)
         }});
-	$('#search_till_date').datepicker({ 
-		dateFormat: "dd/mm/yy", 
+	$('#search_till_date').datepicker({
+		dateFormat: "dd/mm/yy",
 		onSelect: function(selected) {
            $("#search_from_date").datepicker("option","maxDate", selected)
         }
 	});
-	
+
 	$('#refresh').on("click", function(e){
 		e.preventDefault();
 		question_text = $("#question_question_text").val();
 		window.location = "/questions/new?question_text=" + question_text;
 	})
-	
+
 };
 $(document).on('page:load', ready);
 $(document).on('page:change', ready);

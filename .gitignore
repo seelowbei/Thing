@@ -24,3 +24,4 @@ nohup.out
 config/locales/humanizer.en.yml
 config/initializers/secret_token.rb
 db/seeds.rb
+start_script_sample.rb

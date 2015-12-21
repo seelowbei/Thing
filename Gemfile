@@ -5,7 +5,6 @@ gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'devise'
 #gem 'redis'
 #gem 'redis-namespace'
 gem "factory_girl_rails", "~> 4.0"
@@ -16,7 +15,7 @@ gem 'simplecov', :require => false, :group => :test
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
+gem 'best_in_place'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'thin'
