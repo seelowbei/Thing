@@ -1,0 +1,24 @@
+.row
+	.col-md-1
+	.col-md-10
+		%h3.black Users List
+		%table.table.table-hover.table-bordered.table-striped.data-table#user_table
+			%thead.active
+				%tr
+					%th.center Email
+					%th.center Role
+					%th.center
+						Action
+						= link_to "Add New User", new_user_registration_path, class: "btn btn-success btn-xs pull-right" if current_user.is_superadmin?
+				%tbody
+					- @users.each do |user|
+						%tr
+							%td= best_in_place user, :email, class: "best_in_place"
+							%td= best_in_place_if current_user.is_superadmin?, user, :role, :as => :select, :collection => [['admin', 'admin'], ['superadmin', 'superadmin']]
+							%td
+								- unless current_user.id == user.id
+									= link_to 'Reset Password', edit_user_path(id: user.id), class: "btn btn-primary btn-xs"
+								- if current_user.is_superadmin? && current_user.id != user.id
+									= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure want to delete this user?" }, class: 'btn btn-danger btn-xs'
+
+	.col-md-1
